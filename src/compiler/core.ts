@@ -2949,8 +2949,11 @@ namespace ts {
 
     //mv
     export interface InstallPackageOptions {
-        fileName: Path,
-        packageName: string,
-        tsconfigLocation: Path,
+        fileName: Path;
+        packageName: string;
+    }
+
+    export interface InstallPackageOptionsWithTsconfigLocation extends InstallPackageOptions {
+        tsconfigLocation: Path;
     }
 }
