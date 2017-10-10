@@ -242,6 +242,27 @@ namespace ts.server {
             this.markAsDirty();
         }
 
+        /*@internal*/
+        protected abstract getProjectRootPath(): Path | undefined;
+
+        //neateR?
+        tryGetRegistry(): Map<void> | undefined {
+            return this.typingsCache.tryGetRegistry();
+        }
+        installPackage(options: InstallPackageOptions): ApplyCodeFixCommandResult { //must be async!
+            //misnamed: call it 'projectrootpath' and not 'tsconfigLocation'
+            this.projectKind
+            const tsconfigLocation = this.getProjectRootPath() as Path;
+            return this.typingsCache.installPackage({ ...options, tsconfigLocation });
+        }
+        private get typingsCache(): TypingsCache {
+            return this.projectService.typingsCache;
+        }
+        //kill
+        writeFile(path: Path, content: string): void {
+            this.directoryStructureHost.writeFile(path, content);
+        }
+
         getCompilationSettings() {
             return this.compilerOptions;
         }
@@ -1097,6 +1118,11 @@ namespace ts.server {
                 exclude: []
             };
         }
+
+        /*@internal*/
+        protected getProjectRootPath(): Path | undefined {
+            return this.projectRootPath as Path;
+        }
     }
 
     /**
@@ -1356,6 +1382,11 @@ namespace ts.server {
                 this.projectErrors.push(getErrorForNoInputFiles(this.configFileSpecs, this.getConfigFilePath()));
             }
         }
+
+        /* @internal */
+        protected getProjectRootPath(): Path | undefined {
+            return this.canonicalConfigFilePath as string as Path;
+        }
     }
 
     /**
@@ -1372,7 +1403,7 @@ namespace ts.server {
             compilerOptions: CompilerOptions,
             languageServiceEnabled: boolean,
             public compileOnSaveEnabled: boolean,
-            projectFilePath?: string) {
+            private readonly projectFilePath?: string) {
             super(externalProjectName,
                 ProjectKind.External,
                 projectService,
@@ -1415,6 +1446,11 @@ namespace ts.server {
                 }
             }
             this.typeAcquisition = newTypeAcquisition;
+        }
+
+        /* @internal */
+        protected getProjectRootPath(): Path | undefined {
+            return this.projectFilePath as Path;
         }
     }
 }

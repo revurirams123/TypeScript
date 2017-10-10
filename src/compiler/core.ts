@@ -2945,7 +2945,6 @@ namespace ts {
                 throw Debug.fail(); // Shouldn't have called this.
             default:
                 Debug.assertNever(result);
->>>>>>> wip
         }
     }
 
