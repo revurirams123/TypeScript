@@ -2228,6 +2228,10 @@
         "category": "Error",
         "code": 2716
     },
+    "Class name cannot be 'Object' when targeting ES5 with module {0}.": {
+        "category": "Error",
+        "code": 2717
+    },
 
     "Import declaration '{0}' is using private name '{1}'.": {
         "category": "Error",

@@ -21636,7 +21636,17 @@ namespace ts {
                 case "symbol":
                 case "void":
                 case "object":
-                    error(name, message, (<Identifier>name).escapedText as string);
+                    error(name, message, name.escapedText as string);
+            }
+        }
+
+        /**
+         * The name cannot be used as 'Object' of user defined types with special target.
+         */
+        function checkClassNameCollisionWithObject(name: Identifier): void {
+            if (languageVersion === ScriptTarget.ES5 && name.escapedText === "Object"
+                && modulekind !== ModuleKind.ES2015 && modulekind !== ModuleKind.ESNext) {
+                error(name, Diagnostics.Class_name_cannot_be_Object_when_targeting_ES5_with_module_0, ModuleKind[modulekind]); // https://github.com/Microsoft/TypeScript/issues/17494
             }
         }
 
@@ -21765,7 +21775,11 @@ namespace ts {
                 checkCollisionWithCapturedNewTargetVariable(node, node.name);
                 checkCollisionWithRequireExportsInGeneratedCode(node, node.name);
                 checkCollisionWithGlobalPromiseInGeneratedCode(node, node.name);
+                if (!isInAmbientContext(node)) {
+                    checkClassNameCollisionWithObject(node.name);
+                }
             }
+
             checkTypeParameters(node.typeParameters);
             checkExportsOnMergedDeclarations(node);
             const symbol = getSymbolOfNode(node);
