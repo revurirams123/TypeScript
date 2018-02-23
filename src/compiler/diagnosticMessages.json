@@ -3977,5 +3977,9 @@
     "Add definite assignment assertion to property '{0}'": {
         "category": "Message",
         "code": 95020
+    },
+    "Generate 'get' and 'set' accessors": {
+        "category": "Message",
+        "code": 95021
     }
 }

@@ -4,3 +4,4 @@
 /// <reference path="extractSymbol.ts" />
 /// <reference path="installTypesForPackage.ts" />
 /// <reference path="useDefaultImport.ts" />
+/// <reference path="GenerateGetterAndSetter.ts" />
