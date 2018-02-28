@@ -8059,7 +8059,15 @@ namespace ts {
                             error(accessExpression.argumentExpression, Diagnostics.Element_implicitly_has_an_any_type_because_index_expression_is_not_of_type_number);
                         }
                         else {
-                            error(accessExpression, Diagnostics.Element_implicitly_has_an_any_type_because_type_0_has_no_index_signature, typeToString(objectType));
+                            let suggestion: string;
+                            if (propName !== undefined && (suggestion = getSuggestionForNonexistentPropertyWithName(propName as string, objectType))) {
+                                if (suggestion !== undefined) {
+                                    error(accessExpression, Diagnostics.Property_0_does_not_exist_on_type_1_Did_you_mean_2, propName as string, typeToString(objectType), suggestion);
+                                }
+                            }
+                            else {
+                                error(accessExpression, Diagnostics.Element_implicitly_has_an_any_type_because_type_0_has_no_index_signature, typeToString(objectType));
+                            }
                         }
                     }
                     return anyType;
@@ -16171,7 +16179,11 @@ namespace ts {
         }
 
         function getSuggestionForNonexistentProperty(node: Identifier, containingType: Type): string | undefined {
-            const suggestion = getSpellingSuggestionForName(idText(node), getPropertiesOfType(containingType), SymbolFlags.Value);
+            return getSuggestionForNonexistentPropertyWithName(idText(node), containingType);
+        }
+
+        function getSuggestionForNonexistentPropertyWithName(name: string, containingType: Type): string | undefined {
+            const suggestion = getSpellingSuggestionForName(name, getPropertiesOfType(containingType), SymbolFlags.Value);
             return suggestion && symbolName(suggestion);
         }
 
