@@ -292,7 +292,7 @@ namespace ts {
             isSymbolAccessible,
             isArrayLikeType,
             getAllPossiblePropertiesOfTypes,
-            getSuggestionForNonexistentProperty: (node, type) => getSuggestionForNonexistentProperty(node, type),
+            getSuggestionForNonexistentProperty: (name, type) => getSuggestionForNonexistentProperty(name, type),
             getSuggestionForNonexistentSymbol: (location, name, meaning) => getSuggestionForNonexistentSymbol(location, escapeLeadingUnderscores(name), meaning),
             getBaseConstraintOfType,
             getDefaultFromTypeParameter: type => type && type.flags & TypeFlags.TypeParameter ? getDefaultFromTypeParameter(type as TypeParameter) : undefined,
@@ -8069,7 +8069,7 @@ namespace ts {
                 const indexNode = accessNode.kind === SyntaxKind.ElementAccessExpression ? accessNode.argumentExpression : accessNode.indexType;
                 if (propName) {
                     const targetTypeString = typeToString(objectType)
-                    const suggestion = getSuggestionForNonexistentPropertyWithName(propName as string, objectType);
+                    const suggestion = getSuggestionForNonexistentProperty(propName as string, objectType);
                     if (suggestion) {
                         error(accessExpression.argumentExpression, Diagnostics.Property_0_does_not_exist_on_type_1_Did_you_mean_2, propName as string, targetTypeString, suggestion);
                     } else {
@@ -9766,7 +9766,7 @@ namespace ts {
                                         errorNode = propDeclaration;
 
                                         if (isIdentifier(propDeclaration.name)) {
-                                            suggestion = getSuggestionForNonexistentProperty(propDeclaration.name, target);
+                                            suggestion = getSuggestionForNonexistentProperty(idText(propDeclaration.name), target);
                                         }
                                     }
 
@@ -16166,7 +16166,7 @@ namespace ts {
                     }
                 }
             }
-            const suggestion = getSuggestionForNonexistentProperty(propNode, containingType);
+            const suggestion = getSuggestionForNonexistentProperty(idText(propNode), containingType);
             if (suggestion !== undefined) {
                 errorInfo = chainDiagnosticMessages(errorInfo, Diagnostics.Property_0_does_not_exist_on_type_1_Did_you_mean_2, declarationNameToString(propNode), typeToString(containingType), suggestion);
             }
@@ -16176,11 +16176,7 @@ namespace ts {
             diagnostics.add(createDiagnosticForNodeFromMessageChain(propNode, errorInfo));
         }
 
-        function getSuggestionForNonexistentProperty(node: Identifier, containingType: Type): string | undefined {
-            return getSuggestionForNonexistentPropertyWithName(idText(node), containingType);
-        }
-
-        function getSuggestionForNonexistentPropertyWithName(name: string, containingType: Type): string | undefined {
+        function getSuggestionForNonexistentProperty(name: string, containingType: Type): string | undefined {
             const suggestion = getSpellingSuggestionForName(name, getPropertiesOfType(containingType), SymbolFlags.Value);
             return suggestion && symbolName(suggestion);
         }

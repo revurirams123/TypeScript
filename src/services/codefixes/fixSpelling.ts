@@ -33,7 +33,7 @@ namespace ts.codefix {
         if (isPropertyAccessExpression(node.parent) && node.parent.name === node) {
             Debug.assert(node.kind === SyntaxKind.Identifier);
             const containingType = checker.getTypeAtLocation(node.parent.expression);
-            suggestion = checker.getSuggestionForNonexistentProperty(node as Identifier, containingType);
+            suggestion = checker.getSuggestionForNonexistentProperty(idText(node as Identifier), containingType);
         }
         else {
             const meaning = getMeaningFromLocation(node);
