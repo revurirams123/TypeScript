@@ -8059,24 +8059,22 @@ namespace ts {
                             error(accessExpression.argumentExpression, Diagnostics.Element_implicitly_has_an_any_type_because_index_expression_is_not_of_type_number);
                         }
                         else {
-                            let suggestion: string;
-                            if (propName !== undefined && (suggestion = getSuggestionForNonexistentPropertyWithName(propName as string, objectType))) {
-                                if (suggestion !== undefined) {
-                                    error(accessExpression, Diagnostics.Property_0_does_not_exist_on_type_1_Did_you_mean_2, propName as string, typeToString(objectType), suggestion);
-                                }
-                            }
-                            else {
-                                error(accessExpression, Diagnostics.Element_implicitly_has_an_any_type_because_type_0_has_no_index_signature, typeToString(objectType));
-                            }
+                            error(accessExpression, Diagnostics.Element_implicitly_has_an_any_type_because_type_0_has_no_index_signature, typeToString(objectType));
                         }
+                        return anyType;
                     }
-                    return anyType;
                 }
             }
             if (accessNode) {
                 const indexNode = accessNode.kind === SyntaxKind.ElementAccessExpression ? accessNode.argumentExpression : accessNode.indexType;
-                if (indexType.flags & (TypeFlags.StringLiteral | TypeFlags.NumberLiteral)) {
-                    error(indexNode, Diagnostics.Property_0_does_not_exist_on_type_1, "" + (<LiteralType>indexType).value, typeToString(objectType));
+                if (propName) {
+                    const targetTypeString = typeToString(objectType)
+                    const suggestion = getSuggestionForNonexistentPropertyWithName(propName as string, objectType);
+                    if (suggestion) {
+                        error(accessExpression.argumentExpression, Diagnostics.Property_0_does_not_exist_on_type_1_Did_you_mean_2, propName as string, targetTypeString, suggestion);
+                    } else {
+                        error(indexNode, Diagnostics.Property_0_does_not_exist_on_type_1, propName as string, targetTypeString);
+                    }
                 }
                 else if (indexType.flags & (TypeFlags.String | TypeFlags.Number)) {
                     error(indexNode, Diagnostics.Type_0_has_no_matching_index_signature_for_type_1, typeToString(objectType), typeToString(indexType));
