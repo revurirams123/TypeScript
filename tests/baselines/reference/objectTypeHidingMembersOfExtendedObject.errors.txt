@@ -6,9 +6,12 @@ tests/cases/conformance/types/members/objectTypeHidingMembersOfExtendedObject.ts
 tests/cases/conformance/types/members/objectTypeHidingMembersOfExtendedObject.ts(11,5): error TS2411: Property 'toLocaleString' of type '() => string' is not assignable to string index type 'Object'.
 tests/cases/conformance/types/members/objectTypeHidingMembersOfExtendedObject.ts(11,5): error TS2411: Property 'toString' of type '() => string' is not assignable to string index type 'Object'.
 tests/cases/conformance/types/members/objectTypeHidingMembersOfExtendedObject.ts(11,5): error TS2411: Property 'valueOf' of type '() => Object' is not assignable to string index type 'Object'.
+tests/cases/conformance/types/members/objectTypeHidingMembersOfExtendedObject.ts(23,15): error TS2339: Property 'hm' does not exist on type 'B'.
+tests/cases/conformance/types/members/objectTypeHidingMembersOfExtendedObject.ts(35,15): error TS2339: Property 'hm' does not exist on type 'B'.
+tests/cases/conformance/types/members/objectTypeHidingMembersOfExtendedObject.ts(45,15): error TS2339: Property 'hm' does not exist on type 'B'.
 
 
-==== tests/cases/conformance/types/members/objectTypeHidingMembersOfExtendedObject.ts (8 errors) ====
+==== tests/cases/conformance/types/members/objectTypeHidingMembersOfExtendedObject.ts (11 errors) ====
     class A {
         foo: string;
     }
@@ -48,6 +51,8 @@ tests/cases/conformance/types/members/objectTypeHidingMembersOfExtendedObject.ts
     var r1: void = c.valueOf();
     var r1b: B = c.data;
     var r1c = r1b['hm']; // should be 'Object'
+                  ~~~~
+!!! error TS2339: Property 'hm' does not exist on type 'B'.
     var r1d = c['hm']; // should be 'any'
     
     interface I {
@@ -60,6 +65,8 @@ tests/cases/conformance/types/members/objectTypeHidingMembersOfExtendedObject.ts
     var r2: void = i.valueOf();
     var r2b: B = i.data;
     var r2c = r2b['hm']; // should be 'Object'
+                  ~~~~
+!!! error TS2339: Property 'hm' does not exist on type 'B'.
     var r2d = i['hm']; // should be 'any'
     
     var a = {
@@ -70,6 +77,8 @@ tests/cases/conformance/types/members/objectTypeHidingMembersOfExtendedObject.ts
     var r3: void = a.valueOf();
     var r3b: B = a.data;
     var r3c = r3b['hm']; // should be 'Object'
+                  ~~~~
+!!! error TS2339: Property 'hm' does not exist on type 'B'.
     var r3d = i['hm'];
     
     var b: {

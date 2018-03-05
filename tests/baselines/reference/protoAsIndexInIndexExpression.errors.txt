@@ -1,0 +1,23 @@
+tests/cases/compiler/protoAsIndexInIndexExpression_1.ts(7,20): error TS2339: Property '___proto__' does not exist on type '{ serialize: () => any; }'.
+
+
+==== tests/cases/compiler/protoAsIndexInIndexExpression_1.ts (1 errors) ====
+    ///<reference path='protoAsIndexInIndexExpression_0.ts'/>
+    var EntityPrototype = undefined;
+    var WorkspacePrototype = {
+        serialize: function (): any {
+        }
+    };
+    WorkspacePrototype['__proto__'] = EntityPrototype;
+                       ~~~~~~~~~~~
+!!! error TS2339: Property '___proto__' does not exist on type '{ serialize: () => any; }'.
+    
+    var o = {
+        "__proto__": 0
+    };
+    class C {
+        "__proto__" = 0;
+    }
+==== tests/cases/compiler/protoAsIndexInIndexExpression_0.ts (0 errors) ====
+    export var x;
+    

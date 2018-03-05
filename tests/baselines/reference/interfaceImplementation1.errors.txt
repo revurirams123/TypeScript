@@ -4,9 +4,10 @@ tests/cases/compiler/interfaceImplementation1.ts(12,7): error TS2420: Class 'C1'
   Property 'iFn' is private in type 'C1' but not in type 'I2'.
 tests/cases/compiler/interfaceImplementation1.ts(34,5): error TS2322: Type '() => C2' is not assignable to type 'I4'.
   Type '() => C2' provides no match for the signature 'new (): I3'.
+tests/cases/compiler/interfaceImplementation1.ts(45,3): error TS2339: Property 'foo' does not exist on type 'I4'.
 
 
-==== tests/cases/compiler/interfaceImplementation1.ts (3 errors) ====
+==== tests/cases/compiler/interfaceImplementation1.ts (4 errors) ====
     interface I1 {
         iObj:{ };
         iNum:number;
@@ -61,4 +62,6 @@ tests/cases/compiler/interfaceImplementation1.ts(34,5): error TS2322: Type '() =
     var c:I4;
     c[5];
     c["foo"];
+      ~~~~~
+!!! error TS2339: Property 'foo' does not exist on type 'I4'.
     

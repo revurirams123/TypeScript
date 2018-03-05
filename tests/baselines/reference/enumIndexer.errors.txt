@@ -1,0 +1,13 @@
+tests/cases/compiler/enumIndexer.ts(6,34): error TS2537: Type 'typeof MyEnumType' has no matching index signature for type 'string'.
+
+
+==== tests/cases/compiler/enumIndexer.ts (1 errors) ====
+    enum MyEnumType {
+        foo, bar
+    }
+    var _arr = [{ key: 'foo' }, { key: 'bar' }]
+    var enumValue = MyEnumType.foo;
+    var x = _arr.map(o => MyEnumType[o.key] === enumValue); // these are not same type
+                                     ~~~~~
+!!! error TS2537: Type 'typeof MyEnumType' has no matching index signature for type 'string'.
+    

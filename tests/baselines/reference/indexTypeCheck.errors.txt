@@ -5,10 +5,11 @@ tests/cases/compiler/indexTypeCheck.ts(22,2): error TS2413: Numeric index type '
 tests/cases/compiler/indexTypeCheck.ts(27,2): error TS2413: Numeric index type 'number' is not assignable to string index type 'string'.
 tests/cases/compiler/indexTypeCheck.ts(32,3): error TS1096: An index signature must have exactly one parameter.
 tests/cases/compiler/indexTypeCheck.ts(36,3): error TS1023: An index signature parameter type must be 'string' or 'number'.
+tests/cases/compiler/indexTypeCheck.ts(48,3): error TS2339: Property 's' does not exist on type 'String'.
 tests/cases/compiler/indexTypeCheck.ts(51,8): error TS2538: Type 'Blue' cannot be used as an index type.
 
 
-==== tests/cases/compiler/indexTypeCheck.ts (8 errors) ====
+==== tests/cases/compiler/indexTypeCheck.ts (9 errors) ====
     interface Red {
     	[n:number]; // ok
     	~~~~~~~~~~~
@@ -71,6 +72,8 @@ tests/cases/compiler/indexTypeCheck.ts(51,8): error TS2538: Type 'Blue' cannot b
     
     s[0]; // error
     s["s"]; // ok
+      ~~~
+!!! error TS2339: Property 's' does not exist on type 'String'.
     s[<any>{}]; // ok
     
     yellow[blue]; // error

@@ -1,14 +1,20 @@
+tests/cases/conformance/types/typeParameters/typeParameterLists/propertyAccessOnTypeParameterWithConstraints4.ts(4,19): error TS2339: Property 'notHere' does not exist on type 'Date'.
 tests/cases/conformance/types/typeParameters/typeParameterLists/propertyAccessOnTypeParameterWithConstraints4.ts(5,22): error TS2339: Property 'notHere' does not exist on type 'T'.
 tests/cases/conformance/types/typeParameters/typeParameterLists/propertyAccessOnTypeParameterWithConstraints4.ts(15,16): error TS2339: Property 'notHere' does not exist on type 'Date'.
+tests/cases/conformance/types/typeParameters/typeParameterLists/propertyAccessOnTypeParameterWithConstraints4.ts(16,17): error TS2339: Property 'notHere' does not exist on type 'Date'.
 tests/cases/conformance/types/typeParameters/typeParameterLists/propertyAccessOnTypeParameterWithConstraints4.ts(21,22): error TS2339: Property 'notHere' does not exist on type 'Date'.
+tests/cases/conformance/types/typeParameters/typeParameterLists/propertyAccessOnTypeParameterWithConstraints4.ts(22,23): error TS2339: Property 'notHere' does not exist on type 'Date'.
+tests/cases/conformance/types/typeParameters/typeParameterLists/propertyAccessOnTypeParameterWithConstraints4.ts(26,19): error TS2339: Property 'notHere' does not exist on type 'Date'.
 tests/cases/conformance/types/typeParameters/typeParameterLists/propertyAccessOnTypeParameterWithConstraints4.ts(27,22): error TS2339: Property 'notHere' does not exist on type 'T'.
 
 
-==== tests/cases/conformance/types/typeParameters/typeParameterLists/propertyAccessOnTypeParameterWithConstraints4.ts (4 errors) ====
+==== tests/cases/conformance/types/typeParameters/typeParameterLists/propertyAccessOnTypeParameterWithConstraints4.ts (8 errors) ====
     class C<T extends Date> {
         f() {
             var x: T;
             var a = x['notHere'](); // should be string
+                      ~~~~~~~~~
+!!! error TS2339: Property 'notHere' does not exist on type 'Date'.
             return a + x.notHere();
                          ~~~~~~~
 !!! error TS2339: Property 'notHere' does not exist on type 'T'.
@@ -25,6 +31,8 @@ tests/cases/conformance/types/typeParameters/typeParameterLists/propertyAccessOn
                    ~~~~~~~
 !!! error TS2339: Property 'notHere' does not exist on type 'Date'.
     var r2b = i.foo['notHere']();
+                    ~~~~~~~~~
+!!! error TS2339: Property 'notHere' does not exist on type 'Date'.
     
     var a: {
         <T extends Date>(): T;
@@ -33,10 +41,14 @@ tests/cases/conformance/types/typeParameters/typeParameterLists/propertyAccessOn
                          ~~~~~~~
 !!! error TS2339: Property 'notHere' does not exist on type 'Date'.
     var r3b: string = a()['notHere']();
+                          ~~~~~~~~~
+!!! error TS2339: Property 'notHere' does not exist on type 'Date'.
     
     var b = {
         foo: <T extends Date>(x: T): T => {
             var a = x['notHere'](); // should be string
+                      ~~~~~~~~~
+!!! error TS2339: Property 'notHere' does not exist on type 'Date'.
             return a + x.notHere();
                          ~~~~~~~
 !!! error TS2339: Property 'notHere' does not exist on type 'T'.

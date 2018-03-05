@@ -1,0 +1,13 @@
+tests/cases/compiler/indexClassByNumber.ts(7,3): error TS2339: Property '0' does not exist on type 'foo'.
+
+
+==== tests/cases/compiler/indexClassByNumber.ts (1 errors) ====
+    // Shouldn't be able to index a class instance by a number (unless it has declared a number index signature)
+    
+    class foo { }
+    
+    var f = new foo();
+    
+    f[0] = 4; // Shouldn't be allowed
+      ~
+!!! error TS2339: Property '0' does not exist on type 'foo'.

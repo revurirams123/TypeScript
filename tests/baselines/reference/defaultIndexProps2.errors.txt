@@ -1,0 +1,21 @@
+tests/cases/compiler/defaultIndexProps2.ts(13,3): error TS2339: Property '0' does not exist on type 'Number'.
+
+
+==== tests/cases/compiler/defaultIndexProps2.ts (1 errors) ====
+    class Foo {
+    	public v = "Yo";
+    }
+    
+    var f = new Foo();
+    
+    // WScript.Echo(f[0]);
+    
+    var o = {v:"Yo2"};
+    
+    // WScript.Echo(o[0]);
+    
+    1[0];
+      ~
+!!! error TS2339: Property '0' does not exist on type 'Number'.
+    var q = "s"[0];
+    

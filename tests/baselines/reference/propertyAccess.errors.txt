@@ -1,13 +1,22 @@
 tests/cases/conformance/expressions/propertyAccess/propertyAccess.ts(11,55): error TS2322: Type '{ 3: string; 'three': string; }' is not assignable to type '{ [n: number]: string; }'.
   Object literal may only specify known properties, and ''three'' does not exist in type '{ [n: number]: string; }'.
 tests/cases/conformance/expressions/propertyAccess/propertyAccess.ts(45,14): error TS2339: Property 'qqq' does not exist on type '{ 10: string; x: string; y: number; z: { n: string; m: number; o: () => boolean; }; 'literal property': number; }'.
+tests/cases/conformance/expressions/propertyAccess/propertyAccess.ts(52,14): error TS2339: Property 'wa wa wa wa wa' does not exist on type '{ 10: string; x: string; y: number; z: { n: string; m: number; o: () => boolean; }; 'literal property': number; }'.
+tests/cases/conformance/expressions/propertyAccess/propertyAccess.ts(60,14): error TS2339: Property '1' does not exist on type '{ 10: string; x: string; y: number; z: { n: string; m: number; o: () => boolean; }; 'literal property': number; }'.
+tests/cases/conformance/expressions/propertyAccess/propertyAccess.ts(76,19): error TS2339: Property 'what' does not exist on type '{ [n: number]: string; }'.
 tests/cases/conformance/expressions/propertyAccess/propertyAccess.ts(80,19): error TS2538: Type '{ name: string; }' cannot be used as an index type.
+tests/cases/conformance/expressions/propertyAccess/propertyAccess.ts(101,18): error TS2339: Property '123' does not exist on type '() => void'.
+tests/cases/conformance/expressions/propertyAccess/propertyAccess.ts(105,18): error TS2339: Property 'zzzz' does not exist on type '() => void'.
+tests/cases/conformance/expressions/propertyAccess/propertyAccess.ts(109,18): error TS2339: Property '1' does not exist on type '() => void'.
+tests/cases/conformance/expressions/propertyAccess/propertyAccess.ts(113,18): error TS2538: Type 'any' cannot be used as an index type.
 tests/cases/conformance/expressions/propertyAccess/propertyAccess.ts(117,18): error TS2538: Type '{ name: string; }' cannot be used as an index type.
+tests/cases/conformance/expressions/propertyAccess/propertyAccess.ts(120,18): error TS2339: Property '32' does not exist on type '() => void'.
 tests/cases/conformance/expressions/propertyAccess/propertyAccess.ts(140,22): error TS2538: Type '{ name: string; }' cannot be used as an index type.
+tests/cases/conformance/expressions/propertyAccess/propertyAccess.ts(142,19): error TS2537: Type '{ [n: number]: string; }' has no matching index signature for type 'string'.
 tests/cases/conformance/expressions/propertyAccess/propertyAccess.ts(149,5): error TS2403: Subsequent variable declarations must have the same type.  Variable 'x3' must be of type 'A | B', but here has type 'A'.
 
 
-==== tests/cases/conformance/expressions/propertyAccess/propertyAccess.ts (6 errors) ====
+==== tests/cases/conformance/expressions/propertyAccess/propertyAccess.ts (15 errors) ====
     class A {
         a: number;
     }
@@ -65,6 +74,8 @@ tests/cases/conformance/expressions/propertyAccess/propertyAccess.ts(149,5): err
     
     // Bracket notation property access using string literal value on type without property of that literal name
     var ee = obj['wa wa wa wa wa'];
+                 ~~~~~~~~~~~~~~~~
+!!! error TS2339: Property 'wa wa wa wa wa' does not exist on type '{ 10: string; x: string; y: number; z: { n: string; m: number; o: () => boolean; }; 'literal property': number; }'.
     var ee: any;
     
     // Bracket notation property access using numeric string literal value on type with property of that literal name
@@ -73,6 +84,8 @@ tests/cases/conformance/expressions/propertyAccess/propertyAccess.ts(149,5): err
     
     // Bracket notation property access using numeric string literal value on type without property of that literal name
     var gg = obj['1'];
+                 ~~~
+!!! error TS2339: Property '1' does not exist on type '{ 10: string; x: string; y: number; z: { n: string; m: number; o: () => boolean; }; 'literal property': number; }'.
     var gg: any;
     
     // Bracket notation property access using numeric value on type with numeric index signature
@@ -89,6 +102,8 @@ tests/cases/conformance/expressions/propertyAccess/propertyAccess.ts(149,5): err
     
     // Bracket notation property access using string value on type with numeric index signature
     var kk = numIndex['what'];
+                      ~~~~~~
+!!! error TS2339: Property 'what' does not exist on type '{ [n: number]: string; }'.
     var kk: any;
     
     // Bracket notation property access using value of other type on type with numeric index signature and no string index signature
@@ -116,18 +131,26 @@ tests/cases/conformance/expressions/propertyAccess/propertyAccess.ts(149,5): err
     
     // Bracket notation property access using numeric value on type with no index signatures
     var qq = noIndex[123];
+                     ~~~
+!!! error TS2339: Property '123' does not exist on type '() => void'.
     var qq: any;
     
     // Bracket notation property access using string value on type with no index signatures
     var rr = noIndex['zzzz'];
+                     ~~~~~~
+!!! error TS2339: Property 'zzzz' does not exist on type '() => void'.
     var rr: any;
     
     // Bracket notation property access using enum value on type with no index signatures
     var ss = noIndex[Compass.South];
+                     ~~~~~~~~~~~~~
+!!! error TS2339: Property '1' does not exist on type '() => void'.
     var ss: any;
     
     // Bracket notation property access using value of type 'any' on type with no index signatures
     var tt = noIndex[<any>null];
+                     ~~~~~~~~~
+!!! error TS2538: Type 'any' cannot be used as an index type.
     var tt: any;
     
     // Bracket notation property access using values of other types on type with no index signatures
@@ -137,6 +160,8 @@ tests/cases/conformance/expressions/propertyAccess/propertyAccess.ts(149,5): err
     
     // Bracket notation property access using numeric value on type with numeric index signature and string index signature
     var vv = noIndex[32];
+                     ~~
+!!! error TS2339: Property '32' does not exist on type '() => void'.
     var vv: any;
     
     // Bracket notation property access using enum value on type with numeric index signature and string index signature
@@ -161,6 +186,8 @@ tests/cases/conformance/expressions/propertyAccess/propertyAccess.ts(149,5): err
 !!! error TS2538: Type '{ name: string; }' cannot be used as an index type.
     
     var x1 = numIndex[stringOrNumber];
+                      ~~~~~~~~~~~~~~
+!!! error TS2537: Type '{ [n: number]: string; }' has no matching index signature for type 'string'.
     var x1: any;
     
     var x2 = strIndex[stringOrNumber];

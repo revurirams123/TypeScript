@@ -1,7 +1,8 @@
 tests/cases/conformance/Symbols/ES5SymbolProperty1.ts(7,6): error TS2471: A computed property name of the form 'Symbol.foo' must be of type 'symbol'.
+tests/cases/conformance/Symbols/ES5SymbolProperty1.ts(10,5): error TS2537: Type '{ [Symbol.foo]: number; }' has no matching index signature for type 'string'.
 
 
-==== tests/cases/conformance/Symbols/ES5SymbolProperty1.ts (1 errors) ====
+==== tests/cases/conformance/Symbols/ES5SymbolProperty1.ts (2 errors) ====
     interface SymbolConstructor {
         foo: string;
     }
@@ -14,3 +15,5 @@ tests/cases/conformance/Symbols/ES5SymbolProperty1.ts(7,6): error TS2471: A comp
     }
     
     obj[Symbol.foo];
+        ~~~~~~~~~~
+!!! error TS2537: Type '{ [Symbol.foo]: number; }' has no matching index signature for type 'string'.

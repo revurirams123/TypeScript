@@ -1,0 +1,22 @@
+tests/cases/conformance/types/members/augmentedTypeBracketAccessIndexSignature.ts(12,12): error TS2339: Property '0' does not exist on type '{}'.
+tests/cases/conformance/types/members/augmentedTypeBracketAccessIndexSignature.ts(13,21): error TS2339: Property '0' does not exist on type '() => void'.
+
+
+==== tests/cases/conformance/types/members/augmentedTypeBracketAccessIndexSignature.ts (2 errors) ====
+    interface Foo { a }
+    interface Bar { b }
+    
+    interface Object {
+        [n: number]: Foo;
+    }
+    
+    interface Function {
+        [n: number]: Bar;
+    }
+    
+    var a = {}[0]; // Should be Foo
+               ~
+!!! error TS2339: Property '0' does not exist on type '{}'.
+    var b = (() => { })[0]; // Should be Bar
+                        ~
+!!! error TS2339: Property '0' does not exist on type '() => void'.

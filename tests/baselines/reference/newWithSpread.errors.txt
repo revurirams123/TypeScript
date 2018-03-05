@@ -22,11 +22,14 @@ tests/cases/conformance/expressions/functionCalls/newWithSpread.ts(85,23): error
 tests/cases/conformance/expressions/functionCalls/newWithSpread.ts(86,23): error TS2472: Spread operator in 'new' expressions is only available when targeting ECMAScript 5 and higher.
 tests/cases/conformance/expressions/functionCalls/newWithSpread.ts(90,27): error TS2472: Spread operator in 'new' expressions is only available when targeting ECMAScript 5 and higher.
 tests/cases/conformance/expressions/functionCalls/newWithSpread.ts(91,27): error TS2472: Spread operator in 'new' expressions is only available when targeting ECMAScript 5 and higher.
+tests/cases/conformance/expressions/functionCalls/newWithSpread.ts(94,7): error TS2339: Property 'a-b' does not exist on type 'C[][]'.
+tests/cases/conformance/expressions/functionCalls/newWithSpread.ts(95,7): error TS2339: Property 'a-b' does not exist on type 'C[][]'.
 tests/cases/conformance/expressions/functionCalls/newWithSpread.ts(95,23): error TS2472: Spread operator in 'new' expressions is only available when targeting ECMAScript 5 and higher.
+tests/cases/conformance/expressions/functionCalls/newWithSpread.ts(96,7): error TS2339: Property 'a-b' does not exist on type 'C[][]'.
 tests/cases/conformance/expressions/functionCalls/newWithSpread.ts(96,23): error TS2472: Spread operator in 'new' expressions is only available when targeting ECMAScript 5 and higher.
 
 
-==== tests/cases/conformance/expressions/functionCalls/newWithSpread.ts (26 errors) ====
+==== tests/cases/conformance/expressions/functionCalls/newWithSpread.ts (29 errors) ====
     function f(x: number, y: number, ...z: string[]) {
     }
     
@@ -169,9 +172,15 @@ tests/cases/conformance/expressions/functionCalls/newWithSpread.ts(96,23): error
     
     // Element access expression with a number
     new i["a-b"][1](1, 2, "string");
+          ~~~~~
+!!! error TS2339: Property 'a-b' does not exist on type 'C[][]'.
     new i["a-b"][1](1, 2, ...a);
+          ~~~~~
+!!! error TS2339: Property 'a-b' does not exist on type 'C[][]'.
                           ~~~~
 !!! error TS2472: Spread operator in 'new' expressions is only available when targeting ECMAScript 5 and higher.
     new i["a-b"][1](1, 2, ...a, "string");
+          ~~~~~
+!!! error TS2339: Property 'a-b' does not exist on type 'C[][]'.
                           ~~~~
 !!! error TS2472: Spread operator in 'new' expressions is only available when targeting ECMAScript 5 and higher.

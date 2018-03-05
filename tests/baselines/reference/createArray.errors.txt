@@ -5,9 +5,10 @@ tests/cases/compiler/createArray.ts(7,12): error TS2693: 'boolean' only refers t
 tests/cases/compiler/createArray.ts(7,19): error TS1150: 'new T[]' cannot be used to create an array. Use 'new Array<T>()' instead.
 tests/cases/compiler/createArray.ts(8,12): error TS2693: 'string' only refers to a type, but is being used as a value here.
 tests/cases/compiler/createArray.ts(8,18): error TS1150: 'new T[]' cannot be used to create an array. Use 'new Array<T>()' instead.
+tests/cases/compiler/createArray.ts(15,7): error TS2339: Property '1' does not exist on type 'typeof C'.
 
 
-==== tests/cases/compiler/createArray.ts (7 errors) ====
+==== tests/cases/compiler/createArray.ts (8 errors) ====
     var na=new number[];
                ~~~~~~
 !!! error TS2693: 'number' only refers to a type, but is being used as a value here.
@@ -37,3 +38,5 @@ tests/cases/compiler/createArray.ts(8,18): error TS1150: 'new T[]' cannot be use
     }
     
     new C[1]; // not an error
+          ~
+!!! error TS2339: Property '1' does not exist on type 'typeof C'.

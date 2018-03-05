@@ -1,10 +1,11 @@
 tests/cases/conformance/es6/Symbols/symbolProperty52.ts(2,13): error TS2339: Property 'nonsense' does not exist on type 'SymbolConstructor'.
 tests/cases/conformance/es6/Symbols/symbolProperty52.ts(5,1): error TS2322: Type '{}' is not assignable to type '{ [Symbol.nonsense]: number; }'.
   Property '[Symbol.nonsense]' is missing in type '{}'.
+tests/cases/conformance/es6/Symbols/symbolProperty52.ts(7,5): error TS2538: Type 'any' cannot be used as an index type.
 tests/cases/conformance/es6/Symbols/symbolProperty52.ts(7,12): error TS2339: Property 'nonsense' does not exist on type 'SymbolConstructor'.
 
 
-==== tests/cases/conformance/es6/Symbols/symbolProperty52.ts (3 errors) ====
+==== tests/cases/conformance/es6/Symbols/symbolProperty52.ts (4 errors) ====
     var obj = {
         [Symbol.nonsense]: 0
                 ~~~~~~~~
@@ -17,5 +18,7 @@ tests/cases/conformance/es6/Symbols/symbolProperty52.ts(7,12): error TS2339: Pro
 !!! error TS2322:   Property '[Symbol.nonsense]' is missing in type '{}'.
     
     obj[Symbol.nonsense];
+        ~~~~~~~~~~~~~~~
+!!! error TS2538: Type 'any' cannot be used as an index type.
                ~~~~~~~~
 !!! error TS2339: Property 'nonsense' does not exist on type 'SymbolConstructor'.

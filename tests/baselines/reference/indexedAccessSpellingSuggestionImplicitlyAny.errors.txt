@@ -1,0 +1,14 @@
+tests/cases/compiler/indexedAccessSpellingSuggestionImplicitlyAny.ts(3,3): error TS2551: Property 'foo' does not exist on type 'I'. Did you mean 'foof'?
+tests/cases/compiler/indexedAccessSpellingSuggestionImplicitlyAny.ts(4,1): error TS7017: Element implicitly has an 'any' type because type 'I' has no index signature.
+
+
+==== tests/cases/compiler/indexedAccessSpellingSuggestionImplicitlyAny.ts (2 errors) ====
+    interface I { foof: number };
+    declare const i: I;
+    i.foo;
+      ~~~
+!!! error TS2551: Property 'foo' does not exist on type 'I'. Did you mean 'foof'?
+    i["foo"];
+    ~~~~~~~~
+!!! error TS7017: Element implicitly has an 'any' type because type 'I' has no index signature.
+    

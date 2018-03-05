@@ -1,9 +1,10 @@
 tests/cases/conformance/parser/ecmascript6/ComputedPropertyNames/parserComputedPropertyName25.ts(3,5): error TS1166: A computed property name in a class property declaration must refer to an expression whose type is a literal type or a 'unique symbol' type.
 tests/cases/conformance/parser/ecmascript6/ComputedPropertyNames/parserComputedPropertyName25.ts(3,6): error TS2304: Cannot find name 'e'.
 tests/cases/conformance/parser/ecmascript6/ComputedPropertyNames/parserComputedPropertyName25.ts(4,6): error TS2304: Cannot find name 'e2'.
+tests/cases/conformance/parser/ecmascript6/ComputedPropertyNames/parserComputedPropertyName25.ts(4,6): error TS2538: Type 'any' cannot be used as an index type.
 
 
-==== tests/cases/conformance/parser/ecmascript6/ComputedPropertyNames/parserComputedPropertyName25.ts (3 errors) ====
+==== tests/cases/conformance/parser/ecmascript6/ComputedPropertyNames/parserComputedPropertyName25.ts (4 errors) ====
     class C {
         // No ASI
         [e] = 0
@@ -14,4 +15,6 @@ tests/cases/conformance/parser/ecmascript6/ComputedPropertyNames/parserComputedP
         [e2] = 1
          ~~
 !!! error TS2304: Cannot find name 'e2'.
+         ~~
+!!! error TS2538: Type 'any' cannot be used as an index type.
     }

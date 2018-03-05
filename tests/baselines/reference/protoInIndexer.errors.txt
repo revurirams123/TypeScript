@@ -1,0 +1,11 @@
+tests/cases/compiler/protoInIndexer.ts(3,14): error TS2339: Property '___proto__' does not exist on type 'X'.
+
+
+==== tests/cases/compiler/protoInIndexer.ts (1 errors) ====
+    class X {
+        constructor() {
+            this['__proto__'] = null; // used to cause ICE
+                 ~~~~~~~~~~~
+!!! error TS2339: Property '___proto__' does not exist on type 'X'.
+        }
+    }

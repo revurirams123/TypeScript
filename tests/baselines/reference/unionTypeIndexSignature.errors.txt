@@ -1,0 +1,41 @@
+tests/cases/conformance/types/union/unionTypeIndexSignature.ts(12,52): error TS2339: Property 'hello' does not exist on type 'boolean | { [a: string]: number; }'.
+tests/cases/conformance/types/union/unionTypeIndexSignature.ts(13,52): error TS2339: Property '10' does not exist on type 'boolean | { [a: string]: number; }'.
+tests/cases/conformance/types/union/unionTypeIndexSignature.ts(18,41): error TS2339: Property 'hello' does not exist on type '{ [a: number]: number; } | { [a: number]: Date; }'.
+tests/cases/conformance/types/union/unionTypeIndexSignature.ts(22,53): error TS2339: Property 'hello' does not exist on type 'boolean | { [a: number]: number; }'.
+tests/cases/conformance/types/union/unionTypeIndexSignature.ts(23,53): error TS2339: Property '10' does not exist on type 'boolean | { [a: number]: number; }'.
+
+
+==== tests/cases/conformance/types/union/unionTypeIndexSignature.ts (5 errors) ====
+    var numOrDate: number | Date;
+    var anyVar: number;
+    
+    // If each type in U has a string index signature, 
+    // U has a string index signature of a union type of the types of the string index signatures from each type in U.
+    
+    var unionOfDifferentReturnType: { [a: string]: number; } | { [a: string]: Date; };
+    numOrDate = unionOfDifferentReturnType["hello"]; // number | Date
+    numOrDate = unionOfDifferentReturnType[10]; // number | Date
+    
+    var unionOfTypesWithAndWithoutStringSignature: { [a: string]: number; } | boolean;
+    anyVar = unionOfTypesWithAndWithoutStringSignature["hello"]; // any
+                                                       ~~~~~~~
+!!! error TS2339: Property 'hello' does not exist on type 'boolean | { [a: string]: number; }'.
+    anyVar = unionOfTypesWithAndWithoutStringSignature[10]; // any
+                                                       ~~
+!!! error TS2339: Property '10' does not exist on type 'boolean | { [a: string]: number; }'.
+    
+    // If each type in U has a numeric index signature, 
+    // U has a numeric index signature of a union type of the types of the numeric index signatures from each type in U.
+    var unionOfDifferentReturnType1: { [a: number]: number; } | { [a: number]: Date; };
+    numOrDate = unionOfDifferentReturnType1["hello"]; // any
+                                            ~~~~~~~
+!!! error TS2339: Property 'hello' does not exist on type '{ [a: number]: number; } | { [a: number]: Date; }'.
+    numOrDate = unionOfDifferentReturnType1[10]; // number | Date
+    
+    var unionOfTypesWithAndWithoutStringSignature1: { [a: number]: number; } | boolean;
+    anyVar = unionOfTypesWithAndWithoutStringSignature1["hello"]; // any
+                                                        ~~~~~~~
+!!! error TS2339: Property 'hello' does not exist on type 'boolean | { [a: number]: number; }'.
+    anyVar = unionOfTypesWithAndWithoutStringSignature1[10]; // any
+                                                        ~~
+!!! error TS2339: Property '10' does not exist on type 'boolean | { [a: number]: number; }'.

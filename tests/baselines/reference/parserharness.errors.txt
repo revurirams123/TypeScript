@@ -7,6 +7,8 @@ tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(25,17): er
 tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(41,12): error TS2304: Cannot find name 'ActiveXObject'.
 tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(43,19): error TS2304: Cannot find name 'require'.
 tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(44,14): error TS2304: Cannot find name 'require'.
+tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(261,35): error TS2537: Type 'ILogger' has no matching index signature for type 'string'.
+tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(262,28): error TS2537: Type 'ILogger' has no matching index signature for type 'string'.
 tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(341,13): error TS2662: Cannot find name 'errorHandlerStack'. Did you mean the static member 'Runnable.errorHandlerStack'?
 tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(347,13): error TS2662: Cannot find name 'errorHandlerStack'. Did you mean the static member 'Runnable.errorHandlerStack'?
 tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(351,17): error TS2662: Cannot find name 'errorHandlerStack'. Did you mean the static member 'Runnable.errorHandlerStack'?
@@ -15,7 +17,13 @@ tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(354,35): e
 tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(691,50): error TS2304: Cannot find name 'ITextWriter'.
 tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(716,47): error TS2503: Cannot find namespace 'TypeScript'.
 tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(721,62): error TS2304: Cannot find name 'ITextWriter'.
+tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(723,41): error TS2537: Type '{}' has no matching index signature for type 'string'.
 tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(724,29): error TS2304: Cannot find name 'ITextWriter'.
+tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(724,61): error TS2537: Type '{}' has no matching index signature for type 'string'.
+tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(728,37): error TS2537: Type '{}' has no matching index signature for type 'string'.
+tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(733,78): error TS2537: Type '{}' has no matching index signature for type 'string'.
+tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(743,94): error TS2537: Type '{}' has no matching index signature for type 'string'.
+tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(746,82): error TS2537: Type '{}' has no matching index signature for type 'string'.
 tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(754,53): error TS2552: Cannot find name 'TypeScript'. Did you mean 'TypeScriptLS'?
 tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(764,56): error TS2503: Cannot find namespace 'TypeScript'.
 tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(765,37): error TS2304: Cannot find name 'TypeScript'.
@@ -59,6 +67,9 @@ tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(1079,26): 
 tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(1080,35): error TS2503: Cannot find namespace 'TypeScript'.
 tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(1080,74): error TS2503: Cannot find namespace 'TypeScript'.
 tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(1107,173): error TS2503: Cannot find namespace 'TypeScript'.
+tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(1127,37): error TS2537: Type '{}' has no matching index signature for type 'string'.
+tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(1128,44): error TS2537: Type '{}' has no matching index signature for type 'string'.
+tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(1139,81): error TS2537: Type '{}' has no matching index signature for type 'string'.
 tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(1176,132): error TS2503: Cannot find namespace 'TypeScript'.
 tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(1193,29): error TS2304: Cannot find name 'WScript'.
 tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(1256,126): error TS2503: Cannot find namespace 'TypeScript'.
@@ -84,6 +95,7 @@ tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(1440,29): 
 tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(1461,23): error TS2503: Cannot find namespace 'TypeScript'.
 tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(1466,36): error TS2304: Cannot find name 'optionRegex'.
 tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(1484,21): error TS2304: Cannot find name 'optionRegex'.
+tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(1489,44): error TS2538: Type 'any' cannot be used as an index type.
 tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(1548,57): error TS2503: Cannot find namespace 'TypeScript'.
 tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(1571,32): error TS2304: Cannot find name 'TypeScript'.
 tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(1582,59): error TS2503: Cannot find namespace 'TypeScript'.
@@ -110,7 +122,7 @@ tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(1787,68): 
 tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(2030,32): error TS2304: Cannot find name 'Diff'.
 
 
-==== tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts (110 errors) ====
+==== tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts (122 errors) ====
     //﻿
     // Copyright (c) Microsoft Corporation.  All rights reserved.
     // 
@@ -390,7 +402,11 @@ tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(2030,32): 
         export function emitLog(field: string, ...params: any[]) {
             for (var i = 0; i < loggers.length; i++) {
                 if (typeof loggers[i][field] === 'function') {
+                                      ~~~~~
+!!! error TS2537: Type 'ILogger' has no matching index signature for type 'string'.
                     loggers[i][field].apply(loggers[i], params);
+                               ~~~~~
+!!! error TS2537: Type 'ILogger' has no matching index signature for type 'string'.
                 }
             }
         }
@@ -868,18 +884,26 @@ tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(2030,32): 
 !!! error TS2304: Cannot find name 'ITextWriter'.
     
                     if (this.fileCollection[s]) {
+                                            ~
+!!! error TS2537: Type '{}' has no matching index signature for type 'string'.
                         return <ITextWriter>this.fileCollection[s];
                                 ~~~~~~~~~~~
 !!! error TS2304: Cannot find name 'ITextWriter'.
+                                                                ~
+!!! error TS2537: Type '{}' has no matching index signature for type 'string'.
                     }
     
                     var writer = new Harness.Compiler.WriterAggregator();
                     this.fileCollection[s] = writer;
+                                        ~
+!!! error TS2537: Type '{}' has no matching index signature for type 'string'.
                     return writer;
                 }
     
                 public directoryExists(s: string) { return false; }
                 public fileExists(s: string) { return typeof this.fileCollection[s] !== 'undefined'; }
+                                                                                 ~
+!!! error TS2537: Type '{}' has no matching index signature for type 'string'.
                 public resolvePath(s: string) { return s; }
     
                 public reset() { this.fileCollection = {}; }
@@ -890,9 +914,13 @@ tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(2030,32): 
                     for (var p in this.fileCollection) {
                         if (this.fileCollection.hasOwnProperty(p)) {
                             var current = <Harness.Compiler.WriterAggregator>this.fileCollection[p];
+                                                                                                 ~
+!!! error TS2537: Type '{}' has no matching index signature for type 'string'.
                             if (current.lines.length > 0) {
                                 if (p !== '0.js') { current.lines.unshift('////[' + p + ']'); }
                                 result.push({ filename: p, file: this.fileCollection[p] });
+                                                                                     ~
+!!! error TS2537: Type '{}' has no matching index signature for type 'string'.
                             }
                         }
                     }
@@ -1360,7 +1388,11 @@ tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(2030,32): 
                         {
                             createFile: (fn: string) => {
                                 outputs[fn] = new Harness.Compiler.WriterAggregator();
+                                        ~~
+!!! error TS2537: Type '{}' has no matching index signature for type 'string'.
                                 return outputs[fn];
+                                               ~~
+!!! error TS2537: Type '{}' has no matching index signature for type 'string'.
                             },
                             directoryExists: (path: string) => true,
                             fileExists: (path: string) => true,
@@ -1372,6 +1404,8 @@ tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(2030,32): 
                     for (var fn in outputs) {
                         if (fn.indexOf('.d.ts') >= 0) {
                             var writer = <Harness.Compiler.WriterAggregator>outputs[fn];
+                                                                                    ~~
+!!! error TS2537: Type '{}' has no matching index signature for type 'string'.
                             writer.Close();
                             results = writer.lines.join('\n');
                             if (verifyNoDeclFile && results != "") {
@@ -1772,6 +1806,8 @@ tests/cases/conformance/parser/ecmascript5/RealWorld/parserharness.ts(2030,32): 
                             throw new Error('Unrecognized metadata name "' + testMetaData[1] + '". Available file metadata names are: ' + fileMetadataNames.join(', '));
                         } else if (fileNameIndex == 0) {
                             currentFileOptions[testMetaData[1]] = testMetaData[2];
+                                               ~~~~~~~~~~~~~~~
+!!! error TS2538: Type 'any' cannot be used as an index type.
                         } else {
                             continue;
                         }

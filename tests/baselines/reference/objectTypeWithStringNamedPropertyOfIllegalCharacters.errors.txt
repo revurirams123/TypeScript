@@ -1,0 +1,68 @@
+tests/cases/conformance/types/members/objectTypeWithStringNamedPropertyOfIllegalCharacters.ts(11,12): error TS2551: Property '    ' does not exist on type 'C'. Did you mean '   '?
+tests/cases/conformance/types/members/objectTypeWithStringNamedPropertyOfIllegalCharacters.ts(24,12): error TS2551: Property '    ' does not exist on type 'I'. Did you mean '   '?
+tests/cases/conformance/types/members/objectTypeWithStringNamedPropertyOfIllegalCharacters.ts(37,12): error TS2551: Property '    ' does not exist on type '{ "   ": number; "a   b": string; "~!@#$%^&*()_+{}|:'<>?\/.,`": number; }'. Did you mean '   '?
+tests/cases/conformance/types/members/objectTypeWithStringNamedPropertyOfIllegalCharacters.ts(49,12): error TS2551: Property '    ' does not exist on type '{ "   ": number; "a   b": string; "~!@#$%^&*()_+{}|:'<>?\/.,`": number; }'. Did you mean '   '?
+
+
+==== tests/cases/conformance/types/members/objectTypeWithStringNamedPropertyOfIllegalCharacters.ts (4 errors) ====
+    class C {
+        "   ": number;
+        "a   b": string;
+        "~!@#$%^&*()_+{}|:'<>?\/.,`": number;
+        "a\a": number;
+        static "a ": number
+    }
+    
+    var c: C;
+    var r = c["   "];
+    var r2 = c["    "];
+               ~~~~~~
+!!! error TS2551: Property '    ' does not exist on type 'C'. Did you mean '   '?
+    var r3 = c["a   b"];
+    // BUG 817263
+    var r4 = c["~!@#$%^&*()_+{}|:'<>?\/.,`"];
+    
+    interface I {
+        "   ": number;
+        "a   b": string;
+        "~!@#$%^&*()_+{}|:'<>?\/.,`": number;
+    }
+    
+    var i: I;
+    var r = i["   "];
+    var r2 = i["    "];
+               ~~~~~~
+!!! error TS2551: Property '    ' does not exist on type 'I'. Did you mean '   '?
+    var r3 = i["a   b"];
+    // BUG 817263
+    var r4 = i["~!@#$%^&*()_+{}|:'<>?\/.,`"];
+    
+    
+    var a: {
+        "   ": number;
+        "a   b": string;
+        "~!@#$%^&*()_+{}|:'<>?\/.,`": number;
+    }
+    
+    var r = a["   "];
+    var r2 = a["    "];
+               ~~~~~~
+!!! error TS2551: Property '    ' does not exist on type '{ "   ": number; "a   b": string; "~!@#$%^&*()_+{}|:'<>?\/.,`": number; }'. Did you mean '   '?
+    var r3 = a["a   b"];
+    // BUG 817263
+    var r4 = a["~!@#$%^&*()_+{}|:'<>?\/.,`"];
+    
+    var b = {
+        "   ": 1,
+        "a   b": "",
+        "~!@#$%^&*()_+{}|:'<>?\/.,`": 1,
+    }
+    
+    var r = b["   "];
+    var r2 = b["    "];
+               ~~~~~~
+!!! error TS2551: Property '    ' does not exist on type '{ "   ": number; "a   b": string; "~!@#$%^&*()_+{}|:'<>?\/.,`": number; }'. Did you mean '   '?
+    var r3 = b["a   b"];
+    // BUG 817263
+    var r4 = b["~!@#$%^&*()_+{}|:'<>?\/.,`"];
+    

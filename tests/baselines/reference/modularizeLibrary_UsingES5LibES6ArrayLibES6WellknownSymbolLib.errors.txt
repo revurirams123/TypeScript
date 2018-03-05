@@ -1,0 +1,13 @@
+tests/cases/compiler/modularizeLibrary_UsingES5LibES6ArrayLibES6WellknownSymbolLib.ts(7,3): error TS2339: Property '__@isConcatSpreadable' does not exist on type 'string[]'.
+
+
+==== tests/cases/compiler/modularizeLibrary_UsingES5LibES6ArrayLibES6WellknownSymbolLib.ts (1 errors) ====
+    function f(x: number, y: number, z: number) {
+        return Array.from(arguments);
+    }
+    
+    f(1, 2, 3);   // no error
+    let a = ['c', 'd'];
+    a[Symbol.isConcatSpreadable] = false;
+      ~~~~~~~~~~~~~~~~~~~~~~~~~
+!!! error TS2339: Property '__@isConcatSpreadable' does not exist on type 'string[]'.

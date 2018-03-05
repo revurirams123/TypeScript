@@ -1,0 +1,14 @@
+tests/cases/compiler/indexedAccessSpellingSuggestion.ts(3,3): error TS2551: Property 'foo' does not exist on type 'I'. Did you mean 'foof'?
+tests/cases/compiler/indexedAccessSpellingSuggestion.ts(4,3): error TS2551: Property 'foo' does not exist on type 'I'. Did you mean 'foof'?
+
+
+==== tests/cases/compiler/indexedAccessSpellingSuggestion.ts (2 errors) ====
+    interface I { foof: number };
+    declare const i: I;
+    i.foo;
+      ~~~
+!!! error TS2551: Property 'foo' does not exist on type 'I'. Did you mean 'foof'?
+    i["foo"];
+      ~~~~~
+!!! error TS2551: Property 'foo' does not exist on type 'I'. Did you mean 'foof'?
+    

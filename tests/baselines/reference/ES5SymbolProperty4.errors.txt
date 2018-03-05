@@ -1,7 +1,8 @@
 tests/cases/conformance/Symbols/ES5SymbolProperty4.ts(4,6): error TS2471: A computed property name of the form 'Symbol.iterator' must be of type 'symbol'.
+tests/cases/conformance/Symbols/ES5SymbolProperty4.ts(7,9): error TS2537: Type 'C' has no matching index signature for type 'string'.
 
 
-==== tests/cases/conformance/Symbols/ES5SymbolProperty4.ts (1 errors) ====
+==== tests/cases/conformance/Symbols/ES5SymbolProperty4.ts (2 errors) ====
     var Symbol: { iterator: string };
     
     class C {
@@ -11,3 +12,5 @@ tests/cases/conformance/Symbols/ES5SymbolProperty4.ts(4,6): error TS2471: A comp
     }
     
     (new C)[Symbol.iterator]
+            ~~~~~~~~~~~~~~~
+!!! error TS2537: Type 'C' has no matching index signature for type 'string'.

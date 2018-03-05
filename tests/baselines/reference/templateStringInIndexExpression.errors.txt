@@ -1,0 +1,7 @@
+tests/cases/conformance/es6/templates/templateStringInIndexExpression.ts(1,14): error TS2339: Property '0' does not exist on type 'String'.
+
+
+==== tests/cases/conformance/es6/templates/templateStringInIndexExpression.ts (1 errors) ====
+    `abc${0}abc`[`0`];
+                 ~~~
+!!! error TS2339: Property '0' does not exist on type 'String'.

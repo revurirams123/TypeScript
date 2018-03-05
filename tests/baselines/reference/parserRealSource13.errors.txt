@@ -114,9 +114,11 @@ tests/cases/conformance/parser/ecmascript5/parserRealSource13.ts(123,39): error 
 tests/cases/conformance/parser/ecmascript5/parserRealSource13.ts(128,33): error TS2339: Property 'getAstWalkerFactory' does not exist on type 'typeof TypeScript'.
 tests/cases/conformance/parser/ecmascript5/parserRealSource13.ts(132,51): error TS2304: Cannot find name 'AST'.
 tests/cases/conformance/parser/ecmascript5/parserRealSource13.ts(135,36): error TS2304: Cannot find name 'NodeType'.
+tests/cases/conformance/parser/ecmascript5/parserRealSource13.ts(136,22): error TS2537: Type 'AstWalkerDetailCallback' has no matching index signature for type 'string'.
+tests/cases/conformance/parser/ecmascript5/parserRealSource13.ts(137,29): error TS2537: Type 'AstWalkerDetailCallback' has no matching index signature for type 'string'.
 
 
-==== tests/cases/conformance/parser/ecmascript5/parserRealSource13.ts (116 errors) ====
+==== tests/cases/conformance/parser/ecmascript5/parserRealSource13.ts (118 errors) ====
     // Copyright (c) Microsoft. All rights reserved. Licensed under the Apache License, Version 2.0. 
     // See LICENSE.txt in the project root for complete license information.
     
@@ -485,7 +487,11 @@ tests/cases/conformance/parser/ecmascript5/parserRealSource13.ts(135,36): error 
                                        ~~~~~~~~
 !!! error TS2304: Cannot find name 'NodeType'.
             if (callback[callbackString]) {
+                         ~~~~~~~~~~~~~~
+!!! error TS2537: Type 'AstWalkerDetailCallback' has no matching index signature for type 'string'.
                 return callback[callbackString](pre, ast);
+                                ~~~~~~~~~~~~~~
+!!! error TS2537: Type 'AstWalkerDetailCallback' has no matching index signature for type 'string'.
             }
     
             if (callback.DefaultCallback) {

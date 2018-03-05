@@ -1,0 +1,9 @@
+tests/cases/compiler/systemJsForInNoException.ts(3,21): error TS2537: Type '{ a: number; }' has no matching index signature for type 'string'.
+
+
+==== tests/cases/compiler/systemJsForInNoException.ts (1 errors) ====
+    export const obj = { a: 1 };
+    for (var key in obj)
+        console.log(obj[key]);
+                        ~~~
+!!! error TS2537: Type '{ a: number; }' has no matching index signature for type 'string'.
