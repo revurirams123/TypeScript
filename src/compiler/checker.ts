@@ -8068,11 +8068,12 @@ namespace ts {
             if (accessNode) {
                 const indexNode = accessNode.kind === SyntaxKind.ElementAccessExpression ? accessNode.argumentExpression : accessNode.indexType;
                 if (propName) {
-                    const targetTypeString = typeToString(objectType)
+                    const targetTypeString = typeToString(objectType);
                     const suggestion = getSuggestionForNonexistentProperty(propName as string, objectType);
                     if (suggestion) {
                         error(accessExpression.argumentExpression, Diagnostics.Property_0_does_not_exist_on_type_1_Did_you_mean_2, propName as string, targetTypeString, suggestion);
-                    } else {
+                    }
+                    else {
                         error(indexNode, Diagnostics.Property_0_does_not_exist_on_type_1, propName as string, targetTypeString);
                     }
                 }
